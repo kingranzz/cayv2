@@ -1473,9 +1473,6 @@ bot.command("maxpower", cooldownMiddleware, checkWhatsAppConnection, async ctx =
     const userId = ctx.from.id;
 
     // Cek apakah pengguna adalah premium
-    if (!isPremium(userId)) {
-        return ctx.reply('❌ This feature is for premium users only. Upgrade to premium to use this command.');
-    }
   if (!q) {
     return ctx.reply(`Example: commandnya 62×××`);
   }
